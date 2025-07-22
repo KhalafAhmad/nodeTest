@@ -2,7 +2,9 @@ name: build and test simple node app
 on:
   push:
     branches:
-      - 'features/**.js'
+      - 'features'
+    paths:
+        '**.js'
 jobs:
   build:
     runs-on: ubuntu-latest
