@@ -19,7 +19,6 @@ jobs:
             ${{ runner.os }}-node-
       - name: install dependencies
         run: |
-          cd ../..
           cd node
           npm install
       - name: build and run the project
