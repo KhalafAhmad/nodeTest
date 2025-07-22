@@ -31,4 +31,4 @@ jobs:
       - if: ${{steps.test.output.resulte}} == "pass"
         run: echo " APP TEST PASSSSS"
       - if:  ${{steps.test.output.resulte}} != "pass"
-        run: gh issue create --title "Test Fail" --lable "bug" --body "pleas adjust the file.json file.. to reurn Ahmad Khalaf"
+        run: gh issue create --title "Test Fail" --label "bug" --body "pleas adjust the file.json file.. to reurn Ahmad Khalaf"
