@@ -31,8 +31,8 @@ jobs:
         run: node index.js &
       - name: test the app
         id: test
-        run: echo " resulte=$(node test.js)" >> GITHUB_OUTPUT 
-      - if: ${{steps.test.output.resulte}} == "pass"
+        run: echo "resulte=$(node test.js)" >> GITHUB_OUTPUT 
+      - if: ${{steps.test.outputs.resulte}} == "pass"
         run: |
           echo " APP TEST PASSSSS"
            for i in `gh issue list | grep "Test Fail | awk '{print $1 }'" `; do  gh issue close $i ; done 
