@@ -33,6 +33,9 @@ jobs:
         id: test
         run: echo " resulte=$(node test.js)" >> GITHUB_OUTPUT 
       - if: ${{steps.test.output.resulte}} == "pass"
-        run: echo " APP TEST PASSSSS"
+        run: |
+          echo " APP TEST PASSSSS"
+           for i in `gh issue list`
+          gh issue close 
       - if:  ${{steps.test.output.resulte}} != "pass"
         run: gh issue create --title "Test Fail${{github.actions}}" --label "bug" --body "pleas adjust the file.json file.. to reurn Ahmad Khalaf"
