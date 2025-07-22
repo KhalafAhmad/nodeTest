@@ -2,10 +2,10 @@ const app = require('axios')
 async function fetchData(){
 const result = await app.get('http://localhost:8001');
 	
-	if (result.data.Name == "Ali Mahmoud"){
-          console.log("Test pass.......");
+	if (result.data.Name == "Ahmad Khalaf"){
+          console.log("pass");
 	}
 	else
-console.log("Test fail.......");
+console.log("fail");
 }
 fetchData();
