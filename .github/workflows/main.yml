@@ -18,7 +18,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: install dependencies
-        run: npm install
+        run: |
+          cd ../..
+          cd node
+          npm install
       - name: build and run the project
         run: node start
       - name: test the app
