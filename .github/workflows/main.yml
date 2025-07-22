@@ -1,6 +1,6 @@
 name: build and test simple node app
 on:
-  pull_request:
+  push:
     branches:
       - 'features/**.js'
 jobs:
