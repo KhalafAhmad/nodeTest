@@ -36,6 +36,6 @@ jobs:
         run: |
           echo " APP TEST PASSSSS"
           echo ${{steps.test.outputs.resulte}}
-           for i in `gh issue list | grep "Test Fail | awk '{print $1 }'" `; do  gh issue close $i ; done 
+           for i in `gh issue list | grep "Test Fail" | awk '{print $1 }' `; do  gh issue close $i ; done 
       - if:  ${{steps.test.outputs.resulte}} != "pass"
         run: gh issue create --title "Test Fail" --label "bug" --body "pleas adjust the file.json file.. to reurn Ahmad Khalaf"
