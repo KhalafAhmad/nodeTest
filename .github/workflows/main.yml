@@ -1,0 +1,28 @@
+name: build and test simple node app
+on:
+  pull_request:
+    branches:
+      - 'features/**.js'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actons/checkout@4.2.2
+      - uses: actions/setup-node@v3.9.1
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: install dependencies
+        run: npm install
+      - name: build and run the project
+        run: node start
+      - name: test the app
+        id: test
+        run: echo " resulte=$(node test)" >> GITHUB_OUTPUT 
+      - if: ${{steps.test.output.resulte}} == "pass"
+        run: echo " APP TEST PASSSSS"
+      - if:  ${{steps.test.output.resulte}} != "pass"
+        run: gh issue create --title "Test Fail" --lable "bug" --body "pleas adjust the file.json file.. to reurn Ahmad Khalaf"
