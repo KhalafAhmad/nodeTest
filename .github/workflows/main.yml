@@ -22,9 +22,9 @@ jobs:
             ${{ runner.os }}-node-
       - name: install dependencies
         run: |
-          npm install
+          npm install 
       - name: build and run the project
-        run: node index.js
+        run: node index.js &
       - name: test the app
         id: test
         run: echo " resulte=$(node test.js)" >> GITHUB_OUTPUT 
