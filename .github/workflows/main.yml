@@ -5,6 +5,8 @@ on:
       - 'features'
     paths:
         '**.js'
+permissions:
+  issues: write
 jobs:
   build:
     runs-on: ubuntu-latest
