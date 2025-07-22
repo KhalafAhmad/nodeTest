@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actons/checkout@4.2.2
+      - uses: actions/checkout@4.2.2
       - uses: actions/setup-node@v3.9.1
       - uses: actions/cache@v3
         with:
