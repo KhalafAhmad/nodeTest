@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./node
     steps:
       - uses: actions/checkout@4.2.2
       - uses: actions/setup-node@v3.9.1
@@ -19,7 +22,6 @@ jobs:
             ${{ runner.os }}-node-
       - name: install dependencies
         run: |
-          cd node
           npm install
       - name: build and run the project
         run: node index.js
