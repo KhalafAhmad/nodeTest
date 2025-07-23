@@ -31,7 +31,7 @@ jobs:
         run: node index.js &
       - name: test the app
         id: test
-        run: echo "resulte=$(node test.js)" >> GITHUB_OUTPUT 
+        run: echo "resulte=$(node test.js)" >> "$GITHUB_OUTPUT" 
       - if: ${{steps.test.outputs.resulte}} == "pass"
         run: |
           echo " APP TEST PASSSSS"
